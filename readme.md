@@ -92,7 +92,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
   <a href="mailto:neuralnet19@hotmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
   </a>
-
 </p>
 
 <p align="center">
