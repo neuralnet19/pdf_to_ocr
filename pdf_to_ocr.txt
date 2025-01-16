@@ -1,0 +1,31 @@
+import os
+import shutil
+import subprocess
+
+# Define the input and output directories
+input_folder = "C:\\root\\archive\\ocr_pend"  # Folder containing the original PDFs
+output_folder = "C:\\root\\archive"  # Folder to save the OCR-processed PDFs
+
+# Create output folder if it does not exist
+os.makedirs(output_folder, exist_ok=True)
+
+# Function to apply OCR to a PDF and save it to the output folder
+def ocr_pdf(input_path, output_path):
+    try:
+        # Run OCRmyPDF command
+        subprocess.run(["ocrmypdf", input_path, output_path], check=True)
+        print(f"Successfully processed: {input_path}")
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to process {input_path}: {e}")
+
+# Loop through all PDF files in the input folder
+for filename in os.listdir(input_folder):
+    if filename.endswith(".pdf"):
+        # Define full input and output paths
+        input_path = os.path.join(input_folder, filename)
+        output_path = os.path.join(output_folder, filename)
+        
+        # Apply OCR and move the file to the output folder
+        ocr_pdf(input_path, output_path)
+
+print("OCR processing completed.")
